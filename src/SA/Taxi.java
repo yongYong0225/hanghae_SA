@@ -15,6 +15,7 @@ public class Taxi extends Transportation {
 
 
 
+
     // 택시 번호 지정 [고유값으로 생성되어야 되기에 랜덤함수로 함]
     public Taxi() {
         this.num = (int)(Math.random()*100+1);
@@ -36,7 +37,7 @@ public class Taxi extends Transportation {
     }
 
     static boolean gasLeft() {
-        return false;
+        return true;
     }
 
     // 탑승		승객			목적지		거리
@@ -92,7 +93,7 @@ public class Taxi extends Transportation {
         status = "일반";
         maxPass = 4;
         System.out.println("누적 요금 = "+ total);
-        if(!gasLeft())
+        if(currentGas<10)
             System.out.println("주유 필요");
         cost = 0;
         return total;

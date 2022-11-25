@@ -9,13 +9,9 @@ public class TestBus {
         Bus bus1 = new Bus();
         Bus bus2 = new Bus();
 
-        // 2번 (버스 1대로 진행)
-        // 1 ~ 2. 승객 +2 & 출력
-        bus1.busNum(1);
-        bus2.busNum(2);
         bus1.board(2);
         // 3 ~ 4. 주유량 50
-        bus1.refuel(50);
+        bus1.refuel(-50);
         System.out.println("주유량 = "+bus1.currentGas);
         // 5. 상태 변경 => 차고지행
         bus1.busStatus(false);

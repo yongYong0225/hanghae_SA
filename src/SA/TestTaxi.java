@@ -11,7 +11,7 @@ public class TestTaxi {
         Taxi taxi1 = new Taxi();
         Taxi taxi2 = new Taxi();
         System.out.println("taxi1 주유량 = "+taxi1.currentGas);
-        System.out.println("taxi1 상태 = "+taxi1.status);
+        System.out.println("taxi1 상태 = "+ Taxi.status);
         System.out.println("taxi2 주유량 = "+taxi2.currentGas);
         System.out.println("taxi2 상태 = "+taxi2.status);
 

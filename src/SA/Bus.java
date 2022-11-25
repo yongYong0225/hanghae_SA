@@ -8,14 +8,14 @@ public class Bus extends Transportation{
     int maxPass = 30;		// 최대 승객 수
     int currentPass = 0;	// 현재 승객 수
     int cost = 1000;		// 요금
+
     // 버스 번호 지정 [고유값으로 생성되어야 되기에 랜덤함수로 함]
 
-    void busNum(int i) {
-        if(i==1) {
-            System.out.println("버스번호 : 1");
-        }else {
-            System.out.println("버스번호 : 2");
-        }
+    public Bus() {
+        this.num = (int)(Math.random()*100+1);
+        // 랜덤함수는 기본형이 Double형이기에 (int)로 정수화
+        // 1부터 값을 뽑고 싶다면 +1 => 랜덤 함수는 0부터 나오기 때문에
+        System.out.println("버스 번호 : "+num);
     }
 
     // 버스 상태 변경
@@ -33,15 +33,18 @@ public class Bus extends Transportation{
 
     // 버스 현재 상태
     void currentBus() {
-
         System.out.println("상태 = "+status);
         System.out.println("주유량 = "+currentGas);
+        if(!gasLeft())
+            System.out.println("주유 필요");
     }
 
     @Override
     void board(int pass, String dest, int dis) {
 
     }
+
+    //버스 기름에 따른 상태변경
 
     // 주유량
     @Override
@@ -73,7 +76,7 @@ public class Bus extends Transportation{
                 currentPass += pass;
                 System.out.println("탑승 승객 수 = "+pass+"명");
                 System.out.println("잔여 승객 수 = "+(maxPass-currentPass)+"명");
-                System.out.println("요금 확인 = "+(cost*pass));
+                System.out.println("요금 = "+(cost*pass));
             }
             if(!available()) {
                 System.out.println("최대 승객 수 초과");
